@@ -1,29 +1,28 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import greenMachine from '../src/images/machine-green.svg';
+import { useState } from 'react';
 import { ReactComponent as GreenMachine } from '../src/images/machine-green.svg';
 import { ReactComponent as RedMachine } from '../src/images/machine-red.svg';
 
 export const host = `${process.env.REACT_APP_REST_SCHEME}://${process.env.REACT_APP_REST_HOST}${process.env.REACT_APP_SERVER_ENDPOINT_PREFIX}`;
 
 function App() {
-  const findMachines = async () => {
-    const response = await fetch(`${host}/machines`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const status = response.status;
-    switch (status) {
-      case 200:
-        const machines = await response.json();
-        console.log(machines);
-        setMachines(machines);
-        break;
-      default:
-    }
-  };
+  // const findMachines = async () => {
+  //   const response = await fetch(`${host}/machines`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   const status = response.status;
+  //   switch (status) {
+  //     case 200:
+  //       const machines = await response.json();
+  //       console.log(machines);
+  //       setMachines(machines);
+  //       break;
+  //     default:
+  //   }
+  // };
 
   const markMachine = async (id, statu) => {
     // const response = await fetch(`${host}/machines/mark`, {
@@ -55,33 +54,33 @@ function App() {
     setMachines(newData);
   };
 
-  function handlePick(status) {
-    switch (status) {
-      case 'online':
-        return 'entity entity-online';
-      case 'offline':
-        return 'entity entity-offline';
-      case 'busy':
-        return 'entity entity-busy';
-      default:
-        return 'entity';
-    }
-  }
+  // function handlePick(status) {
+  //   switch (status) {
+  //     case 'online':
+  //       return 'entity entity-online';
+  //     case 'offline':
+  //       return 'entity entity-offline';
+  //     case 'busy':
+  //       return 'entity entity-busy';
+  //     default:
+  //       return 'entity';
+  //   }
+  // }
 
-  function classText(status) {
-    switch (status) {
-      case 'online':
-        return 'text text-online';
-      case 'offline':
-        return 'text text-offline';
-      case 'busy':
-        return 'text text-busy';
-      default:
-        return 'text';
-    }
-  }
+  // function classText(status) {
+  //   switch (status) {
+  //     case 'online':
+  //       return 'text text-online';
+  //     case 'offline':
+  //       return 'text text-offline';
+  //     case 'busy':
+  //       return 'text text-busy';
+  //     default:
+  //       return 'text';
+  //   }
+  // }
 
-  const status = ['online', 'busy', 'offline'];
+  // const status = ['online', 'busy', 'offline'];
 
   const [machines, setMachines] = useState([
     { name: 'Striker', id: 1, status: 0 },
