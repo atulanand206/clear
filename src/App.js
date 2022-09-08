@@ -4,10 +4,9 @@ import { ReactComponent as GreenMachine } from '../src/images/machine-green.svg'
 import { ReactComponent as RedMachine } from '../src/images/machine-red.svg';
 import { findMachines } from './apis/MachineAPI';
 import Unit from './components/units/Unit';
-
+import { useProfileQuery } from './store/app/index';
 
 function App() {
-
   // const status = ['online', 'busy', 'offline'];
 
   const [machines, setMachines] = useState([
@@ -18,15 +17,15 @@ function App() {
   ]);
 
   useEffect(() => {
-    findMachines()
-    .then((response) => {
+    findMachines().then((response) => {
       console.log(response);
       setMachines(response);
     });
   }, []);
 
   console.log(machines);
-
+  const { data: apiData } = useProfileQuery();
+  console.log(apiData);
   return (
     <div
       className='App'
