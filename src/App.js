@@ -1,7 +1,5 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import { ReactComponent as GreenMachine } from '../src/images/machine-green.svg';
-import { ReactComponent as RedMachine } from '../src/images/machine-red.svg';
 import { findMachines } from './apis/MachineAPI';
 import Unit from './components/units/Unit';
 import { useProfileQuery } from './store/app/index';
