@@ -23,9 +23,12 @@ const apiSlice = createApi({
     profile: builder.query({
       query: () => 'profile',
     }),
+    getMachines: builder.query({
+      query: () => 'machines',
+    }),
   }),
 });
 
-export const { useProfileQuery } = apiSlice;
+export const { useGetMachinesQuery } = apiSlice;
 
 export default apiSlice;

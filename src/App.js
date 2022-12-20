@@ -1,29 +1,22 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { findMachines } from './apis/MachineAPI';
 import Unit from './components/units/Unit';
-import { useProfileQuery } from './store/app/index';
+import { setMachines } from './store/machine';
+
 
 function App() {
-  // const status = ['online', 'busy', 'offline'];
+  const {machines} = useSelector((state) => state.machinesStore);
 
-  const [machines, setMachines] = useState([
-    { name: 'Striker', id: 1, status: 0 },
-    { name: 'Maverick', id: 2, status: 0 },
-    { name: 'Diamond', id: 3, status: 0 },
-    { name: 'Highland', id: 4, status: 0 },
-  ]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     findMachines().then((response) => {
-      console.log(response);
-      setMachines(response);
+      dispatch(setMachines(response));
     });
-  }, []);
+  });
 
-  console.log(machines);
-  const { data: apiData } = useProfileQuery();
-  console.log(apiData);
   return (
     <div
       className='App'
