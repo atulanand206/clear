@@ -38,10 +38,6 @@
 }
 
 .dropdown__options {
-  display: flex;
-  flex-direction: column;
-  // justify-content: center;
-  display: 'block';
   margin: 0px 16px;
   height: var(--options-height);
   width: var(--options-width);

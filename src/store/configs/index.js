@@ -4,15 +4,15 @@ import { createSlice } from '@reduxjs/toolkit';
 const configsSlice = createSlice({
   name: 'configs',
   initialState: {
-    floor: 3,
-    room: 304,
-    bedId: '',
+    floor: 1,
+    room: 101,
+    bedId: 1,
     userId: '',
   },
   reducers: {
     setFloor: (state, action) => {
       state.floor = action.payload.floor;
-      state.room = action.payload.floor * 100 + 4;
+      state.room = action.payload.floor * 100 + 1;
     },
     setRoom: (state, action) => {
       state.room = action.payload.room;
@@ -24,9 +24,9 @@ const configsSlice = createSlice({
       // state.userId = action.payload.userId;
     },
     clear: (state) => {
-      state.floor = 0;
-      state.room = 0;
-      state.bedId = '';
+      state.floor = 1;
+      state.room = 101;
+      state.bedId = 1;
       state.userId = '';
     },
   },
