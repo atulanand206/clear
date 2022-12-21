@@ -1,0 +1,22 @@
+.container {
+  display: 'flex';
+  flex-direction: 'row';
+  gap: '20px';
+  flex-wrap: 'wrap';
+  margin: 'auto';
+  justify-content: 'center';
+}
+
+.unit {
+  height: 250px;
+}
+
+.label {
+  &__green {
+    color: #23cc11;
+  }
+
+  &__red {
+    color: #CC0E0E;
+  }
+}

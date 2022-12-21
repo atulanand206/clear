@@ -1,0 +1,335 @@
+{
+  "buildingId": "",
+  "layout": {
+      "1": {
+          "101": {
+              "1": {
+                  "bedId": "9d70930a-da7c-4641-bf12-ffacfddfdb64",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "21ca486a-1465-4ea1-85d4-3323e13a9c53",
+                  "userId": ""
+              }
+          },
+          "102": {
+              "1": {
+                  "bedId": "bb01cd2a-d768-412d-8d56-60276c4d0c2d",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "12370690-87f0-46db-a27a-ca35cbe2a1e2",
+                  "userId": ""
+              }
+          },
+          "103": {
+              "1": {
+                  "bedId": "d4725c5c-f780-4242-b669-93dc9f31f33b",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "e6641e2b-0af8-4b32-b1ba-80eea629de34",
+                  "userId": ""
+              }
+          },
+          "104": {
+              "1": {
+                  "bedId": "6d83c2ac-c411-4c39-8938-1a724361793a",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "e1e26fa6-81f7-4a67-acdc-1b0e24d24886",
+                  "userId": ""
+              }
+          }
+      },
+      "2": {
+          "201": {
+              "1": {
+                  "bedId": "852582d4-d39e-4d64-9a41-6fefcef40629",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "c52e274c-2b3b-4c3e-baa1-ec9c7638f4a3",
+                  "userId": ""
+              }
+          },
+          "202": {
+              "1": {
+                  "bedId": "192ccd8b-bc5a-4eb0-9287-be108cb9947e",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "0b542c50-0591-4696-9bcd-0097d2ff6dc3",
+                  "userId": ""
+              }
+          },
+          "203": {
+              "1": {
+                  "bedId": "6767dd9e-c6be-44a2-ac61-5d31658aaea1",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "bdecce52-cc8b-413f-8726-0483add43de8",
+                  "userId": ""
+              }
+          },
+          "204": {
+              "1": {
+                  "bedId": "bc07caaa-2198-4657-aaec-b87cf21148c6",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "f3c75401-4eed-40d7-9c88-fff5921ce775",
+                  "userId": ""
+              }
+          },
+          "205": {
+              "1": {
+                  "bedId": "c09b0548-1e6e-436a-9f86-8aef947242a5",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "99ba1962-a5a4-4777-9feb-e5950f310d60",
+                  "userId": ""
+              }
+          },
+          "206": {
+              "1": {
+                  "bedId": "921fce72-7602-41a3-81c6-246616c57a40",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "4a2e8670-cf60-46ac-bd8b-b482cd54cd93",
+                  "userId": ""
+              }
+          },
+          "207": {
+              "1": {
+                  "bedId": "8896bf33-8ff1-4f2b-a503-8e923c36cc19",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "a1509a66-2d5a-41af-824c-6263848e7086",
+                  "userId": ""
+              }
+          },
+          "208": {
+              "1": {
+                  "bedId": "09e1dcbf-e4e1-4d9d-8f7f-b844b086e664",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "2c33b6ce-2402-4878-b15c-1c8171793b6f",
+                  "userId": ""
+              }
+          }
+      },
+      "3": {
+          "301": {
+              "1": {
+                  "bedId": "22c68f8d-2035-4657-a98a-df163f2b6c64",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "fdf187fa-ba97-4e9c-9b69-77c433cadd0f",
+                  "userId": ""
+              }
+          },
+          "302": {
+              "1": {
+                  "bedId": "7fbba5fe-c5c2-4e60-9e74-a3b507956ef1",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "23e50e41-2e46-4f98-bc0b-23e12c93b376",
+                  "userId": ""
+              }
+          },
+          "303": {
+              "1": {
+                  "bedId": "80218e26-9f90-4183-9fa4-b3066bf0a33d",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "91172741-9de5-4fc2-a826-0b51635fcdda",
+                  "userId": ""
+              }
+          },
+          "304": {
+              "1": {
+                  "bedId": "82b57a0b-f452-45d9-9edf-02132606f1fb",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "58308dcf-be99-4713-b521-b2e86324867f",
+                  "userId": ""
+              }
+          },
+          "305": {
+              "1": {
+                  "bedId": "c47d67a3-0155-4f51-88ff-39423ba22617",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "833e7652-034d-462d-ae44-cab717c47235",
+                  "userId": ""
+              }
+          },
+          "306": {
+              "1": {
+                  "bedId": "a5f41eed-d003-4623-909a-d567bef473b5",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "d1408168-8916-4a1f-b769-08c4caadf05b",
+                  "userId": ""
+              }
+          },
+          "307": {
+              "1": {
+                  "bedId": "b8eed63b-02f3-47cc-85d1-f76022a2ff7d",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "ce984777-50dc-491a-acf1-75423b3d7b9a",
+                  "userId": ""
+              }
+          },
+          "308": {
+              "1": {
+                  "bedId": "ee1b496e-d906-4dc9-8ee3-c905bb7912fc",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "1b7d6d75-245e-423a-ac7c-57c2b6e96e8d",
+                  "userId": ""
+              }
+          }
+      },
+      "4": {
+          "401": {
+              "1": {
+                  "bedId": "992eebac-8f01-42a3-9309-668b2f4be325",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "f10944ef-2ea4-463c-9941-509f931802f3",
+                  "userId": ""
+              }
+          },
+          "402": {
+              "1": {
+                  "bedId": "14c4d0c9-2a11-48c0-875a-f6d61b962293",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "6e8a9779-1ac6-4e8b-bfc5-a3de0ea5774f",
+                  "userId": ""
+              }
+          },
+          "403": {
+              "1": {
+                  "bedId": "86bc454b-98eb-42ea-9416-ccddb49e8e52",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "d1359c05-a35d-4ee6-af1e-bb91f07a0cf1",
+                  "userId": ""
+              }
+          },
+          "404": {
+              "1": {
+                  "bedId": "56b3bbb8-2fe2-4e4b-9dd7-3fdfffd0c9c0",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "9a289e5b-af86-4242-93ea-108aa2838ac3",
+                  "userId": ""
+              }
+          },
+          "405": {
+              "1": {
+                  "bedId": "63fb036f-7206-476d-bd27-ef76c7648edf",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "e0bc8b39-1dca-4d02-9d3a-a2a27ccdda0d",
+                  "userId": ""
+              }
+          },
+          "406": {
+              "1": {
+                  "bedId": "7691c00f-872f-4c4b-855a-211ad8ad39d1",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "8044e88a-7c75-4d27-bd89-c73c8a71b0b5",
+                  "userId": ""
+              }
+          },
+          "407": {
+              "1": {
+                  "bedId": "e5d93a90-229e-452a-bc92-70de18104701",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "8e49c97a-8172-4c05-b31e-df4d76b6df56",
+                  "userId": ""
+              }
+          },
+          "408": {
+              "1": {
+                  "bedId": "e8d5e148-7a1b-403e-9f9a-214b35c8202a",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "229e674a-e1bc-4b08-b910-ff7e8f4cdbcc",
+                  "userId": ""
+              }
+          }
+      },
+      "5": {
+          "501": {
+              "1": {
+                  "bedId": "9f14865f-617b-4d20-a5f1-774de232cd77",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "8879ee25-73ee-4476-800c-267d8e783f09",
+                  "userId": ""
+              }
+          },
+          "502": {
+              "1": {
+                  "bedId": "c0a4ba2e-8e31-4dc2-8cc5-808e3f194b9b",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "598fed32-4ab3-4e63-9678-d744e09522f1",
+                  "userId": ""
+              }
+          },
+          "503": {
+              "1": {
+                  "bedId": "f6be8c02-4661-418c-a2d2-3bbc5c0bb543",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "95306c4d-df62-479e-83b8-5f4da7670345",
+                  "userId": ""
+              }
+          },
+          "504": {
+              "1": {
+                  "bedId": "5704a702-90c5-4833-86ae-f498d2a1ad61",
+                  "userId": ""
+              },
+              "2": {
+                  "bedId": "1e31d045-d0e9-4796-9061-4fd9cb8efe7d",
+                  "userId": ""
+              }
+          }
+      }
+  }
+}
