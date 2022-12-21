@@ -29,7 +29,7 @@ function App() {
       // console.log(levels,'levels')
       dispatch(setLayout(buildingResponse.layout));
     // }, [building]);
-  });
+  }, []);
 
   return (
     <div
@@ -43,7 +43,7 @@ function App() {
         minHeight: '100vh',
       }}
     >
-      <header className='title'>Scalerverse Machines</header>
+      {/* <header className='title'>Scalerverse Machines</header> */}
       {/* <Unit machines={machines} /> */}
       <Layout />
     </div>

@@ -4,24 +4,29 @@ import './Dropdown.scss';
 
 const Dropdown = (props) => {
 
-  const { id, displayNames, selectedId } = props
+  const { id, displayNames, selectedName, onClick } = props
+
+  console.log(displayNames, 'displayNames')
+
+  const isSelected = (index) => {
+    return displayNames[index] === selectedName
+  }
 
   return (
-    <div className='container' id={id}>
-      <div className='dropdown__selected'>
-        {displayNames[selectedId]}
-      </div>
-      {displayNames.map((displayName, index) => {
-        return (
-          <div key={index} className='dropdown'>
-            <div className='dropdown__options'>
-              <div className='dropdown__option'>
-                {displayName}
-              </div>
+    <div className='dropdown' id={id}>
+      <div className='dropdown__options'>
+        {displayNames.map((displayName, index) => {
+          return (
+            <div 
+            key={index}
+            onClick={() => onClick(displayName)} 
+            className={
+              isSelected(index) ? 'dropdown__option--selected' : 'dropdown__option'}>
+              {displayName}
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   );
 };

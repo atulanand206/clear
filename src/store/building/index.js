@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const buildingSlice = createSlice({
   name: 'building',
   initialState: {
-    levels: [],
+    levels: {},
     floors: [],
     rooms: [],
     beds: [],
@@ -14,16 +14,8 @@ const buildingSlice = createSlice({
       console.log(action.payload,'layout')
       const levels = action.payload;
       state.levels = levels;
+      state.floors = Object.keys(levels);
       console.log(state.levels)
-    },
-    getFloors: (state, action) => {
-      return state.levels.keys();
-    },
-    getRooms: (state, action) => {
-      return state.levels[action.payload.floor].keys();
-    },
-    getBeds: (state, action) => {
-      return state.levels[action.payload.floor][action.payload.room].keys();
     },
     reset: (state) => {
       state.levels = []
@@ -32,7 +24,7 @@ const buildingSlice = createSlice({
 });
 
 // actions
-export const { setLayout, getFloors, getRooms, getBeds, reset } = buildingSlice.actions;
+export const { setLayout, reset } = buildingSlice.actions;
 
 // reducer
 export default buildingSlice.reducer;
