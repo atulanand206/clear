@@ -33,10 +33,14 @@
   flex-direction: column;
 }
 
+.dropdown__space {
+  padding: 50px;
+}
+
 .dropdown__options {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   display: 'block';
   margin: 0px 16px;
   height: var(--options-height);

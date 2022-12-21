@@ -9,12 +9,13 @@ const Dropdown = (props) => {
   console.log(displayNames, 'displayNames')
 
   const isSelected = (index) => {
-    return displayNames[index] === selectedName
+    return displayNames[index] == selectedName
   }
 
   return (
     <div className='dropdown' id={id}>
       <div className='dropdown__options'>
+        <div className='dropdown__space'></div>
         {displayNames.map((displayName, index) => {
           return (
             <div 
@@ -26,7 +27,9 @@ const Dropdown = (props) => {
             </div>
           )
         })}
+        <div className='dropdown__space'></div>
       </div>
+
     </div>
   );
 };
