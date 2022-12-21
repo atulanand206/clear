@@ -11,7 +11,6 @@ export const findMachines = async () => {
     switch (status) {
       case 200:
         const machines = await response.json();
-        console.log(machines);
         return machines;
       default:
         return {};

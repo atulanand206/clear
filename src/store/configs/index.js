@@ -12,7 +12,6 @@ const configsSlice = createSlice({
   reducers: {
     setFloor: (state, action) => {
       state.floor = action.payload.floor;
-      state.room = action.payload.floor * 100 + 1;
     },
     setRoom: (state, action) => {
       state.room = action.payload.room;
@@ -21,7 +20,7 @@ const configsSlice = createSlice({
       state.bedId = action.payload.bedId;
     },
     setUserId: (state, action) => {
-      // state.userId = action.payload.userId;
+      state.userId = action.payload.userId;
     },
     clear: (state) => {
       state.floor = 1;

@@ -14,7 +14,6 @@ export const findBuildingLayout = async (buildingId) => {
     switch (status) {
       case 200:
         const layout = await response.json();
-        console.log(layout);
         return layout;
       default:
         return {};

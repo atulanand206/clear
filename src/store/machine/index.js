@@ -8,7 +8,6 @@ const machineSlice = createSlice({
   },
   reducers: {
     setMachines: (state, action) => {
-      console.log(action.payload,'machines')
       state.machines = action.payload;
     },
     reset: (state) => {

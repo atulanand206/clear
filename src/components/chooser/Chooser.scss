@@ -1,6 +1,11 @@
 .container {
   display: 'flex';
-  flex-direction: 'row';
+  flex-direction: column;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
   gap: '20px';
   flex-wrap: 'wrap';
   margin: 'auto';
@@ -19,4 +24,11 @@
   &__red {
     color: #CC0E0E;
   }
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color-unselected);
+  padding: 16px 16px;
 }
