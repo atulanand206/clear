@@ -6,13 +6,14 @@ import Layout from './components/layout/Layout';
 import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import Unit from './components/units/Unit';
-import { setLayout } from './store/building';
+import { setBuildingName, setLayout } from './store/building';
 import { setBuildingId, setView } from './store/configs';
 
 function App() {
 
   const Views = ['Login', 'Machine', 'Catalog', 'Signup']
   const { view } = useSelector((state) => state.configsStore);
+  const { buildingName } = useSelector((state) => state.buildingStore);
 
   const { data, isLoading, isError } = useBuilding();
 
@@ -42,6 +43,7 @@ function App() {
       return;
     }
     dispatch(setLayout(data.layout));
+    dispatch(setBuildingName(data.buildingName));
     dispatch(setBuildingId({ buildingId: "b2b20223-bdab-4a73-b50b-ac35eac7cfd6" }))
     dispatch(setView(Views[1]));
   }
@@ -67,7 +69,8 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='title'>Scalerverse Machines</header>
+      <header className='title'>Machines</header>
+      <header className='subtitle'>{buildingName}</header>
       <main className='main'>{page()}</main>
     </div>
   );
