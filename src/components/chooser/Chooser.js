@@ -15,6 +15,7 @@ const Chooser = (props) => {
   const { role } = useSelector((state) => state.authStore)
   const { floor, room, bedId } = useSelector((state) => state.configsStore);
   const { levels, floors } = useSelector((state) => state.buildingStore);
+  const { selectedBedId, selectedUserId } = useSelector((state) => state.beduserStore)
 
   const { data, isError, isLoading } = useCustomers()
 
@@ -48,7 +49,7 @@ const Chooser = (props) => {
   }, [room])
 
   const isEditable = () => {
-    return role === 2 || role === 1
+    return role === 0 || role === 1
   }
 
   return (
@@ -73,7 +74,7 @@ const Chooser = (props) => {
           onClick={onBedSelected}
         />
       </div>
-      <div className='name'>{isEditable() ? <BedUserEdit customers={getCustomers()} /> : <BedUserRead />}</div>
+      <div className='name'>{isEditable() ? <BedUserEdit customers={getCustomers()} /> : <BedUserRead userId={selectedUserId}/>}</div>
     </div>
   );
 };

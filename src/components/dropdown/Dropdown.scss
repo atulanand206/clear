@@ -45,20 +45,24 @@
 
 .dropdown__option {
   display: flex;
-  margin: 2dp;
-  flex-direction: row;
   color: var(--text-color-unselected);
   padding: 6px 16px;
-  text-decoration: 'none';
+  text-decoration: none;
   border-width: 1px;
   border-style: solid;
   border-color: rgb(83, 81, 81);
 
   &--selected {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
     color: var(--text-color-selected);
     display: flex;
-    flex-direction: row;
+    text-decoration: none;
     padding-block: 12px 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
   }
 }
 

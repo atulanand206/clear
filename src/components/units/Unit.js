@@ -7,6 +7,7 @@ import { setMachines } from '../../store/machine';
 import Profile from '../profile/Profile';
 import { getUserIdFromBedId } from '../../urls/BuildingUtils';
 import './Unit.scss';
+import BedUserRead from '../beduserread/BedUserRead';
 
 const Unit = (props) => {
 
@@ -56,14 +57,12 @@ const Unit = (props) => {
             {isAvailable(machine) ? (
               <GreenMachine
                 onClick={() => {
-                  console.log('clicked', machine.machineId, machine.status)
                   onMarkMachine(machine.machineId, machine.status);
                 }}
               />
             ) : (
                 <RedMachine
                   onClick={() => {
-                    console.log('clicked', machine.machineId, machine.status)
                     onUnmarkMachine(machine.machineId, machine.status);
                   }}
                 />
@@ -73,8 +72,9 @@ const Unit = (props) => {
             ) : (
               <div >
                 <h2 className='label__red'> {machine.name}</h2>
-                <div className='label__red'> {machine.bedId}</div>
-                <div className='label__red'> {getUserIdFromBedId(levels, machine.bedId)}</div>
+                <BedUserRead userId={getUserIdFromBedId(levels, machine.bedId)} />
+                {/* <div className='label__red'> {machine.bedId}</div> */}
+                {/* <div className='label__red'> {getUserIdFromBedId(levels, machine.bedId)}</div> */}
               </div>
             )}
           </div>

@@ -1,6 +1,14 @@
+:root {
+  --font-family: 'Roboto', sans-serif;
+  --font-size: 1em;
+  --font-weight: 400;
+  --border-color: #eaeaea;
+}
+
 *{
   background-color: #282c34;
   color: white;
+  font-family: var(--font-family);
 }
 .App {
   color: 'white';
@@ -9,7 +17,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin-inline: 4em;
+  margin-inline: 2em;
 }
 
 .App-header {
@@ -46,6 +54,8 @@ main {
   margin: 1em;
   margin-top: 0;
   color: #cfb098;
+  font-size: 2em;
+  font-family: var(--font-family);
 }
 
 .entity {

@@ -1,18 +1,26 @@
 import { useSelector } from 'react-redux';
+import TextLabel from '../textLabel/TextLabel';
 import './Profile.scss';
 
 const Profile = () => {
 
-  const { name, phone, username } = useSelector((state) => state.authStore)
+  const { name, phone, username, role } = useSelector((state) => state.authStore)
+
+  const roleString = (role) => {
+    switch (role) {
+      case 0: return 'Admin'
+      case 1: return 'Manager'
+      case 2: return 'Staff'
+      case 3: return 'Resident'
+      default: return 'Resident'
+    }
+  }
 
   return (
     <div className='profile__container'>
-      <div className='profile__title'>Profile</div>
-      <div className='profile__input'>
-        <div className='profile__name'>{name}</div>
-        <div className='profile__name'>{phone}</div>
-        <div className='profile__name'>{username}</div>
-      </div>
+      <TextLabel label={`${roleString(role)}, ${name}`} />
+      {/* <TextLabel label={`Phone: ${phone}`} />
+      <TextLabel label={`Username: ${username}`} /> */}
     </div>
   );
 };
