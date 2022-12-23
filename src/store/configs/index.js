@@ -24,6 +24,7 @@ const configsSlice = createSlice({
       state.userId = action.payload.userId;
     },
     setView: (state, action) => {
+      console.log(action, 'setView')
       state.view = action.payload.view;
     },
     clear: (state) => {
