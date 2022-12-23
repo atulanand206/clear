@@ -77,6 +77,7 @@ const Chooser = (props) => {
   const onBedSelected = (bed) => {
     dispatch(setBedId({ 'bedId': bed }))
     dispatch(selectBedId({ 'bedId': getBedId(floor, room, bed) }))
+    dispatch(selectUserId({ 'userId': getUserId(floor, room, bed) }))
   }
 
   useEffect(() => {
@@ -88,7 +89,7 @@ const Chooser = (props) => {
   }, [room])
 
   const isEditable = () => {
-    return role === 0 || role === 1
+    return role === 2 || role === 1
   }
 
   return (

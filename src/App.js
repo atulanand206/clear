@@ -8,7 +8,7 @@ import Login from './components/login/Login';
 import Signup from './components/signup/Signup';
 import Unit from './components/units/Unit';
 import { setLayout } from './store/building';
-import { setView } from './store/configs';
+import { setBuildingId, setView } from './store/configs';
 import { setMachines } from './store/machine';
 
 function App() {
@@ -48,6 +48,7 @@ function App() {
       return;
     }
     dispatch(setLayout(data.layout));
+    dispatch(setBuildingId({ buildingId: "b2b20223-bdab-4a73-b50b-ac35eac7cfd6" }))
     dispatch(setView(Views[1]));
   }
 

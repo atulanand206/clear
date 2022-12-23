@@ -4,6 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const configsSlice = createSlice({
   name: 'configs',
   initialState: {
+    buildingId: '1',
     floor: 1,
     room: 101,
     bedId: 1,
@@ -11,6 +12,9 @@ const configsSlice = createSlice({
     view: 'Login'
   },
   reducers: {
+    setBuildingId: (state, action) => {
+      state.buildingId = action.payload.buildingId;
+    },
     setFloor: (state, action) => {
       state.floor = action.payload.floor;
     },
@@ -27,6 +31,7 @@ const configsSlice = createSlice({
       state.view = action.payload;
     },
     clear: (state) => {
+      state.buildingId = '1';
       state.floor = 1;
       state.room = 101;
       state.bedId = 1;
@@ -37,7 +42,7 @@ const configsSlice = createSlice({
 });
 
 // actions
-export const { setFloor, setRoom, setBedId, setUserId, setView, clear } = configsSlice.actions;
+export const { setBuildingId, setFloor, setRoom, setBedId, setUserId, setView, clear } = configsSlice.actions;
 
 // reducer
 export default configsSlice.reducer;
