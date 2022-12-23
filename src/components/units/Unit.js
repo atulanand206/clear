@@ -5,12 +5,14 @@ import { ReactComponent as GreenMachine } from '../../images/machine-green.svg';
 import { ReactComponent as RedMachine } from '../../images/machine-red.svg';
 import { setMachines } from '../../store/machine';
 import Profile from '../profile/Profile';
+import { getUserIdFromBedId } from '../../urls/BuildingUtils';
 import './Unit.scss';
 
 const Unit = (props) => {
 
   const { openCatalog } = props;
   const { machines } = useSelector((state) => state.machinesStore);
+  const { levels } = useSelector((state) => state.buildingStore);
   const { id } = useSelector((state) => state.authStore);
   const dispatch = useDispatch();
 
@@ -59,17 +61,21 @@ const Unit = (props) => {
                 }}
               />
             ) : (
-              <RedMachine
-                onClick={() => {
-                  console.log('clicked', machine.machineId, machine.status)
-                  onUnmarkMachine(machine.machineId, machine.status);
-                }}
-              />
+                <RedMachine
+                  onClick={() => {
+                    console.log('clicked', machine.machineId, machine.status)
+                    onUnmarkMachine(machine.machineId, machine.status);
+                  }}
+                />
             )}
             {!machine.status ? (
               <h2 className='label__green'> {machine.name}</h2>
             ) : (
-              <h2 className='label__red'> {machine.name}</h2>
+              <div >
+                <h2 className='label__red'> {machine.name}</h2>
+                <div className='label__red'> {machine.bedId}</div>
+                <div className='label__red'> {getUserIdFromBedId(levels, machine.bedId)}</div>
+              </div>
             )}
           </div>
         ))}
