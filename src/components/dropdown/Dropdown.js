@@ -1,6 +1,5 @@
 
 import { useEffect, useRef } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
 import './Dropdown.scss';
 
 const Dropdown = (props) => {

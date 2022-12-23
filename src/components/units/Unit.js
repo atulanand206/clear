@@ -10,8 +10,8 @@ const Unit = (props) => {
     <div className='unit__container'>
       <Profile />
       <div className='unit__machines'>
-        {props.machines.map((machine) => (
-          <div className='unit__machine'>
+        {props.machines.map((machine, index) => (
+          <div className='unit__machine' key={index}>
             {!machine.status ? (
               <GreenMachine
                 onClick={() => {

@@ -1,13 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFloor, setRoom, setBedId, setUserId } from './../../store/configs';
+import { selectBedId, selectUserId } from '../../store/beduser';
 import Dropdown from '../dropdown/Dropdown';
 import './Chooser.scss';
 import { useEffect } from 'react';
+import BedUserEdit from '../beduseredit/BedUserEdit';
+import BedUserRead from '../beduserread/BedUserRead';
 
 const Chooser = (props) => {
   const dispatch = useDispatch()
 
-  const { floor, room, bedId, userId } = useSelector((state) => state.configsStore);
+  const { role } = useSelector((state) => state.authStore)
+  const { selectedBedId, selectedUserId } = useSelector((state) => state.beduserStore)
+  const { floor, room, bedId } = useSelector((state) => state.configsStore);
   const { levels, floors } = useSelector((state) => state.buildingStore);
 
   const getRooms = (floor) => {
@@ -15,19 +20,31 @@ const Chooser = (props) => {
   }
 
   const getBeds = (floor, room) => {
-    if (levels === undefined) {
+    if (levels === undefined || levels === null) {
       return []
     }
     console.log(levels)
-    if (Object.keys(levels).length === 0 ||
-      Object.keys(levels[floor]).length === 0 ||
+    if (Object.keys(levels).length === 0 || !levels.hasOwnProperty(floor) ||
+      Object.keys(levels[floor]).length === 0 || !levels[floor].hasOwnProperty(room) ||
       Object.keys(levels[floor][room]).length === 0) {
       return []
     }
     return Object.keys(levels[floor][room])
   }
 
-  const getName = (floor, room, bedId) => {
+  const getBedId = (floor, room, bedId) => {
+    if (levels === {}) {
+      return ''
+    }
+    if (Object.keys(levels).length === 0 || !levels.hasOwnProperty(floor) ||
+      Object.keys(levels[floor]).length === 0 || !levels[floor].hasOwnProperty(room) ||
+      Object.keys(levels[floor][room]).length === 0) {
+      return ''
+    }
+    return levels[floor][room][bedId]["bedId"]
+  }
+
+  const getUserId = (floor, room, bedId) => {
     if (levels === {}) {
       return ''
     }
@@ -36,36 +53,33 @@ const Chooser = (props) => {
       Object.keys(levels[floor][room]).length === 0) {
       return ''
     }
-    console.log(levels[floor][room][bedId], 'userId')
-    return levels[floor][room][bedId]["bedId"]
+    return levels[floor][room][bedId]["userId"]
   }
 
   const onFloorSelected = (floor) => {
-    dispatch(setFloor({'floor': floor}))
+    dispatch(setFloor({ 'floor': floor }))
   }
 
   const onRoomSelected = (room) => {
-    dispatch(setRoom({'room': room}))
+    dispatch(setRoom({ 'room': room }))
   }
-  
+
   const onBedSelected = (bed) => {
-    dispatch(setBedId({'bedId': bed}))
+    dispatch(setBedId({ 'bedId': bed }))
+    dispatch(selectBedId({ 'bedId': getBedId(floor, room, bed) }))
   }
 
   useEffect(() => {
-    dispatch(setRoom({'room': floor * 100 + 1}))
-    dispatch(setBedId({'bedId': 1}))
-    dispatch(setUserId({'userId': getName(floor, floor * 100 + 1, 1)}))
+    dispatch(setRoom({ 'room': floor * 100 + 1 }))
   }, [floor])
 
   useEffect(() => {
-    dispatch(setBedId({'bedId': 1}))
-    dispatch(setUserId({'userId': getName(floor, room, 1)}))
+    onBedSelected(1)
   }, [room])
 
-  useEffect(() => {
-    dispatch(setUserId({'userId': getName(floor, room, bedId)}))
-  }, [bedId])
+  const isEditable = () => {
+    return role === 2 || role === 1
+  }
 
   return (
     <div className='chooser__container'>
@@ -89,9 +103,7 @@ const Chooser = (props) => {
           onClick={onBedSelected}
         />
       </div>
-      <div className='name'>
-        <div className='name__label'>{getName(floor, room, bedId)}</div>
-      </div>
+      <div className='name'>{isEditable() ? <BedUserEdit /> : <BedUserRead />}</div>
     </div>
   );
 };

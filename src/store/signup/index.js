@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
-const profileSlice = createSlice({
-  name: 'basicProfile',
+const signupSlice = createSlice({
+  name: 'signup',
   initialState: {
     username: '',
     password: '',
@@ -10,9 +10,6 @@ const profileSlice = createSlice({
     name: '',
     phone: '',
     role: '',
-    age: '',
-    gender: '',
-    profilePicture: '',
   },
   reducers: {
     setUserName: (state, action) => {
@@ -20,6 +17,9 @@ const profileSlice = createSlice({
     },
     setPassword: (state, action) => {
       state.password = action.payload.password;
+    },
+    setId: (state, action) => {
+      state.id = action.payload.id;
     },
     setName: (state, action) => {
       state.name = action.payload.name;
@@ -30,12 +30,6 @@ const profileSlice = createSlice({
     setRole: (state, action) => {
       state.role = action.payload.role;
     },
-    setLoginProfile: (state, action) => {
-      state.id = action.payload.id;
-      state.name = action.payload.name;
-      state.phone = action.payload.phone;
-      state.role = action.payload.role;
-    },
     reset: (state) => {
       state.username = '';
       state.password = '';
@@ -43,18 +37,13 @@ const profileSlice = createSlice({
       state.name = '';
       state.phone = '';
       state.role = '';
-      state.age = '';
-      state.gender = '';
-      state.profilePicture = '';
     },
   },
 });
 
 // actions
-export const { setUserName, setPassword, setLoginProfile, setName, setPhone, setRole } = profileSlice.actions;
+export const { setUserName, setPassword, setId, setName, setPhone, setRole, reset } = signupSlice.actions;
 
 // reducer
-export default profileSlice.reducer;
+export default signupSlice.reducer;
 
-// selectors
-export const selectBasicProfile = (state) => state.basicProfile;

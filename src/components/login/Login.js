@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserName, setPassword, setLoginProfile } from './../../store/auth';
 import { login } from './../../apis/LoginAPI';
@@ -9,11 +8,6 @@ const Login = (props) => {
   const dispatch = useDispatch()
 
   const { username, password } = useSelector((state) => state.authStore)
-
-  useEffect(() => {
-    onUsernameChanged('')
-    onPasswordChanged('')
-  }, [])
 
   const onUsernameChanged = (username) => {
     dispatch(setUserName({ 'username': username }))
@@ -42,6 +36,7 @@ const Login = (props) => {
           <input type='password' placeholder='Password' value={password} onChange={(e) => onPasswordChanged(e.target.value)} />
           <input type='submit' value='Login' />
         </form>
+        <div className='login__form__title' onClick={props.onSignup}>Signup</div>
       </div>
     </div>
   );

@@ -6,3 +6,13 @@ export const login = async (username, password) => {
     password: password,
   });
 }
+
+export const signup = async (username, password, name, phone) => {
+  var body = {
+    username: username,
+    password: password,
+    name: name,
+    phone: phone
+  }
+  return requestPost('/users/signup', body);
+}
