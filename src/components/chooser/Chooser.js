@@ -15,6 +15,10 @@ const Chooser = (props) => {
   }
 
   const getBeds = (floor, room) => {
+    if (levels === undefined) {
+      return []
+    }
+    console.log(levels)
     if (Object.keys(levels).length === 0 ||
       Object.keys(levels[floor]).length === 0 ||
       Object.keys(levels[floor][room]).length === 0) {
@@ -24,6 +28,9 @@ const Chooser = (props) => {
   }
 
   const getName = (floor, room, bedId) => {
+    if (levels === {}) {
+      return ''
+    }
     if (Object.keys(levels).length === 0 ||
       Object.keys(levels[floor]).length === 0 ||
       Object.keys(levels[floor][room]).length === 0) {

@@ -7,7 +7,7 @@ import configsReducer from './configs/index';
 
 export const store = configureStore({
   reducer: {
-    auth: authReducer,
+    authStore: authReducer,
     configsStore: configsReducer,
     machinesStore: machineReducer,
     buildingStore: buildingReducer
