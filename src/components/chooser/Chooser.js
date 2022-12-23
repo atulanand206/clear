@@ -4,6 +4,7 @@ import { selectBedId, selectUserId } from '../../store/beduser';
 import Dropdown from '../dropdown/Dropdown';
 import './Chooser.scss';
 import { useEffect } from 'react';
+import { useCustomers } from './../../apis/CustomerAPI';
 import BedUserEdit from '../beduseredit/BedUserEdit';
 import BedUserRead from '../beduserread/BedUserRead';
 
@@ -14,6 +15,15 @@ const Chooser = (props) => {
   const { selectedBedId, selectedUserId } = useSelector((state) => state.beduserStore)
   const { floor, room, bedId } = useSelector((state) => state.configsStore);
   const { levels, floors } = useSelector((state) => state.buildingStore);
+
+  const { data, isError, isLoading } = useCustomers()
+
+  const getCustomers = () => {
+    if (isLoading || isError || data === undefined || data === null) {
+      return []
+    }
+    return data
+  }
 
   const getRooms = (floor) => {
     return Object.keys(levels).length > 0 ? Object.keys(levels[floor]) : []
@@ -78,7 +88,7 @@ const Chooser = (props) => {
   }, [room])
 
   const isEditable = () => {
-    return role === 2 || role === 1
+    return role === 0 || role === 1
   }
 
   return (
@@ -103,7 +113,7 @@ const Chooser = (props) => {
           onClick={onBedSelected}
         />
       </div>
-      <div className='name'>{isEditable() ? <BedUserEdit /> : <BedUserRead />}</div>
+      <div className='name'>{isEditable() ? <BedUserEdit customers={getCustomers()} /> : <BedUserRead />}</div>
     </div>
   );
 };

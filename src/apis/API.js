@@ -9,6 +9,7 @@ export const request = async (endpoint, method, body) => {
     body: JSON.stringify(body),
   });
   const status = response.status;
+  console.log(response)
   switch (status) {
     case 200:
       const data = await response.json();
