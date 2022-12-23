@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserName, setPassword } from './../../store/auth';
+import { setUserName, setPassword, setLoginProfile } from './../../store/auth';
 import { login } from './../../apis/LoginAPI';
 import './Login.scss';
 
@@ -26,6 +26,7 @@ const Login = (props) => {
   const onLogin = (e) => {
     e.preventDefault();
     login(username, password).then((res) => {
+      dispatch(setLoginProfile(res.user))
       sessionStorage.setItem('token', res.token)
       onPasswordChanged('')
       props.onLogin()

@@ -6,7 +6,10 @@ const profileSlice = createSlice({
   initialState: {
     username: '',
     password: '',
+    id: '',
     name: '',
+    phone: '',
+    role: '',
     age: '',
     gender: '',
     profilePicture: '',
@@ -18,11 +21,11 @@ const profileSlice = createSlice({
     setPassword: (state, action) => {
       state.password = action.payload.password;
     },
-    setBasicProfile: (state, action) => {
+    setLoginProfile: (state, action) => {
+      state.id = action.payload.id;
       state.name = action.payload.name;
-      state.age = action.payload.age;
-      state.gender = action.payload.gender;
-      state.profilePicture = action.payload.profilePicture;
+      state.phone = action.payload.phone;
+      state.role = action.payload.role;
     },
     reset: (state) => {
       state.name = '';
@@ -34,7 +37,7 @@ const profileSlice = createSlice({
 });
 
 // actions
-export const { setUserName, setPassword, setBasicProfile } = profileSlice.actions;
+export const { setUserName, setPassword, setLoginProfile } = profileSlice.actions;
 
 // reducer
 export default profileSlice.reducer;

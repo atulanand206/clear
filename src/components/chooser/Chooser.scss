@@ -1,15 +1,19 @@
-.container {
-  display: 'flex';
-  flex-direction: column;
+.chooser {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
 }
 
 .selector {
   display: flex;
   flex-direction: row;
-  gap: '20px';
-  flex-wrap: 'wrap';
-  margin: 'auto';
-  justify-content: 'center';
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
 }
 
 .unit {

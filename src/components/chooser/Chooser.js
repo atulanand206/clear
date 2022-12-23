@@ -36,7 +36,8 @@ const Chooser = (props) => {
       Object.keys(levels[floor][room]).length === 0) {
       return ''
     }
-    return levels[floor][room][bedId]["userId"]
+    console.log(levels[floor][room][bedId], 'userId')
+    return levels[floor][room][bedId]["bedId"]
   }
 
   const onFloorSelected = (floor) => {
@@ -67,7 +68,7 @@ const Chooser = (props) => {
   }, [bedId])
 
   return (
-    <div className='container'>
+    <div className='chooser__container'>
       <div className='selector'>
         <Dropdown
           id='floor'
@@ -89,7 +90,7 @@ const Chooser = (props) => {
         />
       </div>
       <div className='name'>
-        <div className='name__label'>{userId}</div>
+        <div className='name__label'>{getName(floor, room, bedId)}</div>
       </div>
     </div>
   );

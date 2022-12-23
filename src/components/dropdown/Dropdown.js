@@ -15,6 +15,10 @@ const Dropdown = (props) => {
 
   useEffect(() => {
     scrollToCenter();
+  })
+
+  useEffect(() => {
+    scrollToCenter();
   }, [selectedName])
 
   const scrollToCenter = () => {

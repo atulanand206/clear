@@ -24,8 +24,7 @@ const configsSlice = createSlice({
       state.userId = action.payload.userId;
     },
     setView: (state, action) => {
-      console.log(action, 'setView')
-      state.view = action.payload.view;
+      state.view = action.payload;
     },
     clear: (state) => {
       state.floor = 1;
