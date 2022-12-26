@@ -2,7 +2,7 @@ import { useCustomers } from '../../apis/CustomerAPI';
 import TextLabel from '../textLabel/TextLabel';
 import './BedUserRead.scss';
 
-const BedUserRead = (props) => {
+const BedUserRead = ({containerClass,...props}) => {
 
   const { data, isError, isLoading } = useCustomers()
 
@@ -18,10 +18,8 @@ const BedUserRead = (props) => {
   }
 
   return (
-    <div className='bur__container'>
-        {/* <TextLabel label={`UserId: ${selectedUserId}`} /> */}
+    <div className={`bur__container ${containerClass} `}>
         <TextLabel label={`${username(props.userId)}`} />
-        {/* <TextLabel label={`BedId: ${selectedBedId}`} /> */}
     </div>
   );
 };

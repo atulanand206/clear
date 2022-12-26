@@ -1,7 +1,8 @@
+import { useQuery } from 'react-query';
 import { requestPost } from './API';
 
-export const findMachines = async () => {
-  return requestPost('/machines', {});
+export const useMachines = () => {
+  return useQuery('machines', () => requestPost('/machines', {}), {interval: 1000});
 };
 
 export const markMachine = async (payload) => {

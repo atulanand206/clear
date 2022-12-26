@@ -8,6 +8,7 @@ import Signup from './components/signup/Signup';
 import Unit from './components/units/Unit';
 import { setBuildingName, setLayout } from './store/building';
 import { setBuildingId, setView } from './store/configs';
+import { toast } from 'react-toastify';
 
 function App() {
 
@@ -42,6 +43,7 @@ function App() {
     if (isLoading || isError || data === undefined) {
       return;
     }
+    toast('🦄 Wow so easy!');
     dispatch(setLayout(data.layout));
     dispatch(setBuildingName(data.buildingName));
     dispatch(setBuildingId({ buildingId: "b2b20223-bdab-4a73-b50b-ac35eac7cfd6" }))

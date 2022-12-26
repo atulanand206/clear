@@ -17,6 +17,24 @@
     justify-content: center;
   }
 
+  @media screen and (max-width: 768px) {
+    &__machines {
+      display: flex;
+    }
+
+    &__machine {
+      flex: 30%;
+      width: 15%;
+      display: flex;
+      flex-direction: row;
+  
+      & > * {
+        height: 150px;
+        justify-self: center;
+      }
+    }
+  }
+
   &__machine {
     width: 15%;
     display: flex;
@@ -27,6 +45,10 @@
       justify-self: center;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
 
 .label {

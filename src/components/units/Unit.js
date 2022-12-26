@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { findMachines, markMachine, unmarkMachine } from '../../apis/MachineAPI';
+import { useSelector } from 'react-redux';
+import { markMachine, unmarkMachine, useMachines } from '../../apis/MachineAPI';
 import { ReactComponent as GreenMachine } from '../../images/machine-green.svg';
 import { ReactComponent as RedMachine } from '../../images/machine-red.svg';
-import { setMachines } from '../../store/machine';
 import Profile from '../profile/Profile';
 import { getUserIdFromBedId } from '../../urls/BuildingUtils';
 import './Unit.scss';
@@ -12,37 +10,40 @@ import BedUserRead from '../beduserread/BedUserRead';
 const Unit = (props) => {
 
   const { openCatalog } = props;
-  const { machines } = useSelector((state) => state.machinesStore);
+  // const { machines } = useSelector((state) => state.machinesStore);
   const { levels } = useSelector((state) => state.buildingStore);
   const { id } = useSelector((state) => state.authStore);
-  const dispatch = useDispatch();
+  const { data, isError, isLoading, refetch } = useMachines();
 
   const onMarkMachine = (machineId, status) => {
-    console.log(machines, 'machines')
     if (status === 0) {
-      markMachine({ machineId: machineId, userId: id});
+      markMachine({ machineId: machineId, userId: id})
+        .then(() => {
+          onRefresh();
+        });
     }
-    onRefresh();
   }
 
   const onUnmarkMachine = (machineId, status) => {
     const payload = { machineId: machineId, userId: id}
-    console.log(payload, 'payload')
     if (status === 1) {
-      unmarkMachine(payload);
+      unmarkMachine(payload)
+        .then(() => {
+          onRefresh();
+        });
     }
-    onRefresh();
   }
 
   const onRefresh = () => {
-    findMachines().then((response) => {
-      dispatch(setMachines(response));
-    });
+    refetch();
   }
 
-  useEffect(() => {
-    onRefresh();
-  }, []);
+  const getMachines = () => {
+    if (isLoading || isError || data === undefined || data === null) {
+      return []
+    }
+    return data
+  }
 
   const isAvailable = (machine) => {
     return machine.bedId === '';
@@ -52,7 +53,7 @@ const Unit = (props) => {
     <div className='unit__container'>
       <Profile />
       <div className='unit__machines'>
-        {machines.map((machine, index) => (
+        {getMachines().map((machine, index) => (
           <div className='unit__machine' key={index}>
             {isAvailable(machine) ? (
               <GreenMachine
@@ -67,16 +68,11 @@ const Unit = (props) => {
                   }}
                 />
             )}
-            {!machine.status ? (
-              <h2 className='label__green'> {machine.name}</h2>
-            ) : (
-              <div >
-                <h2 className='label__red'> {machine.name}</h2>
-                <BedUserRead userId={getUserIdFromBedId(levels, machine.bedId)} />
-                {/* <div className='label__red'> {machine.bedId}</div> */}
-                {/* <div className='label__red'> {getUserIdFromBedId(levels, machine.bedId)}</div> */}
-              </div>
-            )}
+            
+            <div >
+              <h2 className={machine.status ? 'label__red' : 'label__green'}> {machine.name}</h2>
+              <BedUserRead containerClass={!machine.status ? 'hidden' : ''} userId={getUserIdFromBedId(levels, machine.bedId)} />
+            </div>
           </div>
         ))}
       </div>
