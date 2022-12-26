@@ -7,7 +7,7 @@ const Layout = (props) => {
     <div className='layout__container'>
       <Profile/>
       <Chooser/>
-      <div className='layout__close' onClick={props.onClose}>Close</div>
+      <div className='layout__close' onClick={props.onClose}>Close Catalog</div>
     </div>
   );
 };

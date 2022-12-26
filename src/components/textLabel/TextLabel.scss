@@ -18,4 +18,8 @@
       weight: var(--font-weight);
     }
   }
+
+  &__clickable {
+    cursor: pointer;
+  }
 }

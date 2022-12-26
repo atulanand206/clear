@@ -9,7 +9,7 @@ import BedUserRead from '../beduserread/BedUserRead';
 
 const Unit = (props) => {
 
-  const { openCatalog } = props;
+  const { openCatalog, logout } = props;
   // const { machines } = useSelector((state) => state.machinesStore);
   const { levels } = useSelector((state) => state.buildingStore);
   const { id } = useSelector((state) => state.authStore);
@@ -51,7 +51,12 @@ const Unit = (props) => {
 
   return (
     <div className='unit__container'>
-      <Profile />
+      <div className='unit__header'>
+        <div className='catalog__open' onClick={logout} >Exit App</div>
+        
+        <div className='catalog__open' onClick={openCatalog} >Open Catalog</div>
+        <Profile />
+      </div>
       <div className='unit__machines'>
         {getMachines().map((machine, index) => (
           <div className='unit__machine' key={index}>
@@ -76,7 +81,6 @@ const Unit = (props) => {
           </div>
         ))}
       </div>
-      <div className='catalog__open' onClick={openCatalog} >Open Catalog</div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ function App() {
       case Views[0]:
         return <Login onLogin={onLogin} onSignup={onStartSignup}/>
       case Views[1]:
-        return <Unit openCatalog={onCatalog} />
+        return <Unit openCatalog={onCatalog} logout={onLogout}/>
       case Views[2]:
         return <Layout onClose={onClose} />
       case Views[3]:
@@ -59,6 +59,10 @@ function App() {
   }
 
   const onSignup = () => {
+  }
+
+  const onLogout = () => {
+    dispatch(setView(Views[0]));
   }
 
   const onCatalog = () => {

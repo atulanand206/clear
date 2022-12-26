@@ -8,6 +8,20 @@
     justify-content: center;
   }
 
+  &__header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      flex: 29%;
+      justify-self: center;
+    }
+  }
+
   &__machines {
     display: flex;
     flex-direction: row;
@@ -65,4 +79,10 @@
     font-size: 1em;
     margin-block: 2em;
   }
+}
+
+.catalog__open {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
