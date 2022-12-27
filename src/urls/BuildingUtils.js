@@ -1,3 +1,10 @@
+export const getFloors = (levels) => {
+  if (levels === undefined || levels === null) {
+    return []
+  }
+  return Object.keys(levels).length > 0 ? Object.keys(levels) : []
+}
+
 export const getRooms = (levels, floor) => {
   return Object.keys(levels).length > 0 ? Object.keys(levels[floor]) : []
 }
@@ -28,11 +35,11 @@ export const getBedId = (levels, floor, room, bedId) => {
 }
 
 export const getUserId = (levels, floor, room, bedId) => {
-  if (levels === {}) {
+  if (levels === {} || levels === undefined || levels === null) {
     return ''
   }
-  if (Object.keys(levels).length === 0 ||
-    Object.keys(levels[floor]).length === 0 ||
+  if (Object.keys(levels).length === 0 || !levels.hasOwnProperty(floor) ||
+    Object.keys(levels[floor]).length === 0 || !levels[floor].hasOwnProperty(room) ||
     Object.keys(levels[floor][room]).length === 0) {
     return ''
   }

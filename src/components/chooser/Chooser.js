@@ -1,21 +1,21 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { setFloor, setRoom, setBedId } from './../../store/configs';
-import { getRooms, getBeds, getBedId, getUserId} from '../../urls/BuildingUtils';
+import { getFloors, getRooms, getBeds, getBedId, getUserId} from '../../urls/BuildingUtils';
 import { selectBedId, selectUserId } from '../../store/beduser';
 import Dropdown from '../dropdown/Dropdown';
 import './Chooser.scss';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useCustomers } from './../../apis/CustomerAPI';
 import BedUserEdit from '../beduseredit/BedUserEdit';
 import BedUserRead from '../beduserread/BedUserRead';
 
 const Chooser = (props) => {
   const dispatch = useDispatch()
+  const { levels } = props;
 
   const { role } = useSelector((state) => state.authStore)
   const { floor, room, bedId } = useSelector((state) => state.configsStore);
-  const { levels, floors } = useSelector((state) => state.buildingStore);
-  const { selectedBedId, selectedUserId } = useSelector((state) => state.beduserStore)
+  const { selectedUserId } = useSelector((state) => state.beduserStore)
 
   const { data, isError, isLoading } = useCustomers()
 
@@ -34,19 +34,19 @@ const Chooser = (props) => {
     dispatch(setRoom({ 'room': room }))
   }
 
-  const onBedSelected = (bed) => {
+  const onBedSelected = useCallback((bed) => {
     dispatch(setBedId({ 'bedId': bed }))
     dispatch(selectBedId({ 'bedId': getBedId(levels, floor, room, bed) }))
     dispatch(selectUserId({ 'userId': getUserId(levels, floor, room, bed) }))
-  }
+  }, [dispatch, levels, floor, room])
 
   useEffect(() => {
     dispatch(setRoom({ 'room': floor * 100 + 1 }))
-  }, [floor])
+  }, [dispatch, floor])
 
   useEffect(() => {
     onBedSelected(1)
-  }, [room])
+  }, [room, onBedSelected])
 
   const isEditable = () => {
     return role === 0 || role === 1
@@ -57,7 +57,7 @@ const Chooser = (props) => {
       <div className='selector'>
         <Dropdown
           id='floor'
-          displayNames={floors}
+          displayNames={getFloors()}
           selectedName={floor}
           onClick={onFloorSelected}
         />

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { assignBedToUser } from '../../apis/BuildingAPI';
+import { assignBedToUser, useBuilding } from '../../apis/BuildingAPI';
 import { selectBedId, selectUserId } from '../../store/beduser';
 import { getUserId } from '../../urls/BuildingUtils';
 
@@ -12,6 +12,14 @@ const BedUserEdit = (props) => {
   const dispatch = useDispatch()
 
   const { selectedBedId, selectedUserId } = useSelector((state) => state.beduserStore)
+  const { data, isLoading, isError } = useBuilding();
+
+  const getLevels = () => {
+    if (isLoading || isError || data === undefined) {
+      return;
+    }
+    return data.layout;
+  }
 
   const onBedSelected = (userId) => {
     dispatch(selectBedId({ 'userId': userId }))
@@ -40,16 +48,6 @@ const BedUserEdit = (props) => {
       })
   }
 
-  const { levels, floors } = useSelector((state) => state.buildingStore);
-
-  const isBedAssigned = () => {
-    if (levels === undefined || levels === null || levels.length === 0 || levels === {}) {
-      return false
-    }
-    const userId = getUserId(levels, room/100, room, selectedBedId)
-    return userId !== null && userId !== undefined && userId !== ''
-  }
-
   return (
     <div className='bu__container'>
         <div className='bu__label'>Name</div>
@@ -59,7 +57,7 @@ const BedUserEdit = (props) => {
           })}
         </select>
         <input type='text' key='bedId' className='bu__value' onChange={(e) => onBedSelected(e.target.value)} value={selectedBedId}></input>
-        <input type='submit' value={(getUserId(levels, room/100, room, selectedBedId)) ? 'Revoke' : 'Assign'} onClick={onAssign} />
+        <input type='submit' value={(getUserId(getLevels(), room/100, room, selectedBedId)) ? 'Revoke' : 'Assign'} onClick={onAssign} />
     </div>
   );
 };

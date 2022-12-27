@@ -18,7 +18,7 @@ root.render(
       <Provider store={store}>
         <App />
         <ToastContainer
-          position="bottom-right"
+          position="top-right"
           autoClose={500}
           hideProgressBar={false}
           newestOnTop={false}

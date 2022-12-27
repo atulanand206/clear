@@ -4,7 +4,7 @@ import './Profile.scss';
 
 const Profile = () => {
 
-  const { name, phone, username, role } = useSelector((state) => state.authStore)
+  const { name, role } = useSelector((state) => state.authStore)
 
   const roleString = (role) => {
     switch (role) {
@@ -19,8 +19,6 @@ const Profile = () => {
   return (
     <div className='profile__container'>
       <TextLabel label={`${roleString(role)}, ${name}`} />
-      {/* <TextLabel label={`Phone: ${phone}`} />
-      <TextLabel label={`Username: ${username}`} /> */}
     </div>
   );
 };

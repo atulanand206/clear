@@ -30,7 +30,7 @@ const Dropdown = (props) => {
   }
 
   const isSelected = (index) => {
-    return displayNames[index] == selectedName
+    return displayNames[index] === selectedName
   }
 
   return (
